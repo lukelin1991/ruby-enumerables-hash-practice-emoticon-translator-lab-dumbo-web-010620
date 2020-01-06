@@ -4,13 +4,13 @@ require 'pry'
 
 def load_library(path)
   emoticons = YAML.load_file(path)
-  emote_hash = {:get_meaning => {}, :get_emoticon => {}}
+  emote_h = {:get_dets => {}, :get_emote => {}}
 
-  emoticons.each do |english_word, emote_set|
-    emote_hash[:get_emoticon][emote_set.first] = emote_set.last
-    emote_hash[:get_meaning][emote_set.last] = english_word
+  emoticons.each do |eng_word, emote|
+    emote_h[:get_emote][emote.first] = emote.last
+    emote_h[:get_dets][emote.last] = eng_word
   end
-  return emote_hash
+  return emote_h
   # code goes here
 end
 
